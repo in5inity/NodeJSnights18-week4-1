@@ -40,4 +40,6 @@ function parseHeader(hdrValue) {
   }
 }
 
-module.exports = authenticate
+module.exports = {
+  authenticate,
+}
