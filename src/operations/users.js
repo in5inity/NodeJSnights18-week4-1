@@ -30,7 +30,7 @@ async function signUp(input) {
   // if (newUser)
 }
 
-async function verifyTokenPayload(inout) {
+async function verifyTokenPayload(input) {
   // never do in production
   log.info({ input }, 'verifyTokenPayload')  
   const jwtPayload = await crypto.verifyAccessToken(input.jwtToken)
