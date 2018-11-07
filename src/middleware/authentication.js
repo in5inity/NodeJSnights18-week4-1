@@ -20,7 +20,7 @@ async function authenticate(ctx, next) {
   validate(schemas.jwtToken, input)
   const data = await operations.verifyTokenPayload(input)
 
-  if (ctx.response && data.login.timeout) {
+  if (ctx.response && data.loginTimeout) {
     ctx.set('Login-timeout', data.loginTimeout)
   }
 
