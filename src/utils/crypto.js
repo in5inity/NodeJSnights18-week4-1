@@ -14,7 +14,7 @@ const jwtVerify = util.promisify(jwt.verify)
 module.exports = {
 
   generateAccessToken(userId) {
-    const payLoad = { userId }
+    const payload = { userId }
 
     return jwtSign(payload, config.auth.secret, config.auth.createOptions)
   },
@@ -38,7 +38,7 @@ module.exports = {
 }
 
 function peperify(password) {
-  return crypto.createHmac(sha1, config.auth.secret)
+  return crypto.createHmac('sha1', config.auth.secret)
   .update(password)
-  .diggest('hex')
+  .digest('hex')
 }
