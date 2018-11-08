@@ -32,7 +32,7 @@ async function signIn(input) {
 
   const user = {
     email: input.email.toLowerCase(),
-    password: input.email.password,
+    password: input.password,
   }
 
   const existingUser = await userRepository.findByEmail(user.email)
@@ -41,7 +41,8 @@ async function signIn(input) {
   }
 
   // compare password
-  const matches = crypto.comparePasswords(user.password, existingUser.password)
+  const matches = await crypto.comparePasswords(user.password, existingUser.password)
+  
   if (!matches) {
     throw new errors.UnauthorizedError('Bad password.')
   }

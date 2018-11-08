@@ -3,14 +3,14 @@
     "id": 1,
     "name": "Arthur Dent",
     "email": "dent@example.com",
-    "password": "Password123!",
+    "password": "$2b$10$AjCnupoi.PkLRFLQ7CJrtepK4dut6UjLGoKnPvQb979g6LeO55EuW",
     "disabled": false
   },
   {
     "id": 2,
     "name": "Ford Prefect",
     "email": "prefect@example.com",
-    "password": "Password123!",
+    "password": "$2b$10$AjCnupoi.PkLRFLQ7CJrtepK4dut6UjLGoKnPvQb979g6LeO55EuW",
     "disabled": false
   }
 ]

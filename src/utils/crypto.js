@@ -36,7 +36,6 @@ module.exports = {
   },
 
   comparePasswords(plaintext, ciphertext) {
-    // runtime error?! 
     return bcrypt.compare(peperify(plaintext), ciphertext) // salt = 10
   },
 
