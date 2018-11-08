@@ -18,6 +18,20 @@ async function signUp(ctx) {
   ctx.body = user
 }
 
+async function signIn(ctx) {
+  const input = {
+    email: ctx.request.body.email,
+    password: ctx.request.body.password,
+  }
+
+  validate(schema.signIn, input)
+  const user = await operations.signIn(input)
+  
+  ctx.status = 201
+  ctx.body = user
+}
+
 module.exports = {
   signUp,
+  signIn,
 }

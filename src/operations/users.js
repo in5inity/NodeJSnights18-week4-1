@@ -29,6 +29,29 @@ async function signUp(input) {
   // if (newUser)
 }
 
+async function signIn(input) {
+  log.info('user signIn')
+
+  const user = {
+    email: input.email.toLowerCase(),
+    password: input.email.password,
+  }
+
+  const existingUser = await userRepository.findByEmail(user.email)
+  if (!existingUser) {
+    throw new errors.UnauthorizedError('User does not exist.')
+  }
+
+  // compare password
+  const matches = crypto.comparePasswords(user.password, existingUser.password)
+  if (!matches) {
+    throw new errors.UnauthorizedError('Bad password.')
+  }
+
+  log.info('User signed in.')
+  return existingUser
+}
+
 async function verifyTokenPayload(input) {
   // never do in production
   log.info({ input }, 'verifyTokenPayload')  
@@ -56,5 +79,6 @@ async function verifyTokenPayload(input) {
 
 module.exports = {
   signUp,
+  signIn,
   verifyTokenPayload,
 }

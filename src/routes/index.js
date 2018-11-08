@@ -10,6 +10,7 @@ const router = new Router()
 router.use(handleErrors)
 
 router.post('/users', users.signUp)
+router.post('/sessions/user', users.signIn)
 
 // duplication - better to .use(...)
 router.get('/dogs', authenticate, dogs.getAll)
