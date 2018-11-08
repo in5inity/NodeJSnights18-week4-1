@@ -30,7 +30,7 @@ module.exports = env => ({
     },
   },
   auth: {
-    secret: process.env.AUTH_SECRET || 'fhjwidhfuwehiéwqh',
+    secret: process.env.AUTH_SECRET || 'fdhwjiodf122673*^dhjwi&',
     createOptions: {
       expiresIn: 60 * 60,
       algorithm: 'HS256',

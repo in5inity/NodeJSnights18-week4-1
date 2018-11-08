@@ -6,8 +6,7 @@ const errors = require('../utils/errors')
 const crypto = require('../utils/crypto')
 
 async function signUp(input) {
-  // never do in production - it prints out user password
-  log.info ({ input }, 'signUp')
+  log.info ('user signUp')
 
   const user = {
     name : input.name,

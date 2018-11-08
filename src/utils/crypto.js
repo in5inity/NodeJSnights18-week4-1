@@ -39,7 +39,7 @@ module.exports = {
 }
 
 function peperify(password) {
-  return crypto.createHmac('sha1', config.auth.secret)
+  return crypto.createHmac('sha256', config.auth.secret)
   .update(password)
   .digest('hex')
 }
