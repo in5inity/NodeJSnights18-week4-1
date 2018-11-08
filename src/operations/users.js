@@ -25,8 +25,6 @@ async function signUp(input) {
   newUser.setAccessToken = await crypto.generateAccessToken(newUser.id)
   log.info('Finished signUp successfully.')
   return newUser
-
-  // if (newUser)
 }
 
 async function signIn(input) {
@@ -48,7 +46,9 @@ async function signIn(input) {
     throw new errors.UnauthorizedError('Bad password.')
   }
 
+  existingUser.setAccessToken = await crypto.generateAccessToken(existingUser.id)
   log.info('User signed in.')
+
   return existingUser
 }
 
