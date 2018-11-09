@@ -1,9 +1,8 @@
 'use strict'
 
 const util = require('util')
-
-const bcrypt = require('bcrypt')
 const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const config = require('../config')
 
@@ -21,10 +20,10 @@ module.exports = {
 
   async verifyAccessToken(accessToken) {
     try {
-      const data =  await jwtVerify(accessToken, config.auth.secret, config.auth.verifyOptions)
+      const data = await jwtVerify(accessToken, config.auth.secret, config.auth.verifyOptions)
       return data
     } catch (err) {
-      if ( err instanceof jwt.JsonWebTokenError) {
+      if (err instanceof jwt.JsonWebTokenError) {
         return null
       }
       throw err
@@ -32,7 +31,7 @@ module.exports = {
   },
 
   hashPassword(password) {
-    return bcrypt.hash(peperify(password), 10) //salt = 10
+    return bcrypt.hash(peperify(password), 10) // salt = 10
   },
 
   comparePasswords(plaintext, ciphertext) {
@@ -43,6 +42,6 @@ module.exports = {
 
 function peperify(password) {
   return crypto.createHmac('sha256', config.auth.secret)
-  .update(password)
-  .digest('hex')
+    .update(password)
+    .digest('hex')
 }

@@ -1,4 +1,4 @@
-'strict'
+'use strict'
 
 const { validate } = require('../validations')
 const operations = require('../operations/users')
@@ -27,7 +27,8 @@ async function signIn(ctx) {
   validate(schema.signIn, input)
   const user = await operations.signIn(input)
   
-  ctx.status = 201
+  // Probably better to return 200, by the logic that we're not creating anything
+  ctx.status = 200
   ctx.body = user
 }
 
