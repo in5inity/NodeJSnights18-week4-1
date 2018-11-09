@@ -12,7 +12,9 @@ router.use(handleErrors)
 router.post('/users', users.signUp)
 router.post('/sessions/user', users.signIn)
 
-// duplication - better to .use(...)
+// duplication - better to .use(...) yes, definitely
+// this way the authenticate middleware gets called
+// for each route match
 router.get('/dogs', authenticate, dogs.getAll)
 router.get('/dogs/:id', authenticate, dogs.getById)
 router.post('/dogs', authenticate, dogs.createDog)
